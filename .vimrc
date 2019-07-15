@@ -4,6 +4,7 @@ so ~/.vim/plugins.vim
 
 "-	Visuals	
 
+set termguicolors     " enable true colors support
 colorscheme koehler
 set t_CO=256
 syntax enable
@@ -11,10 +12,6 @@ syntax enable
 let mapleader = ','
 set number
 
-
-
-
-set backspace=indent,eol,start
 "-	Search		
 
 set hlsearch
@@ -25,6 +22,7 @@ set incsearch
 
 "-	Mappings	
 
+set backspace=indent,eol,start
 "Make it easy to edit the .vimrc file.
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
 nmap <Leader>pl :tabedit ~/.vim/plugins.vim<cr>
