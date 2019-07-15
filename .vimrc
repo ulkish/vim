@@ -6,7 +6,6 @@ so ~/.vim/plugins.vim
 
 set termguicolors     " enable true colors support
 colorscheme koehler
-set t_CO=256
 syntax enable
 
 let mapleader = ','
