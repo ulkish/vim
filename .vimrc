@@ -1,17 +1,20 @@
 let mapleader = ','
+filetype off                  " required
+
 "-	Plugins		
 set nocompatible              "We want the latest vim settings/options 
-filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'				"Lets Vundle manage Vundle
+Plugin 'scrooloose/nerdtree'				"Navigation
+Plugin 'vim-airline/vim-airline'			"Status bar.
+Plugin 'vim-airline/vim-airline-themes'		"Stylish airline.
+Plugin 'Raimondi/delimitMate'				"Autoclose ({[.
+Plugin 'mattn/emmet-vim'					"HTML tags support.
+Plugin 'jwalton512/vim-blade'				"Blade syntax support.
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -19,12 +22,15 @@ filetype plugin indent on    " required
 
 "-	Visuals	
 
+
 set termguicolors
 colorscheme atom-dark
 syntax enable
 set number
 set backspace=indent,eol,start
 let g:airline_powerline_fonts = 1
+hi LineNR guibg=bg
+hi vertsplit guifg=bg guibg=bg
 
 "-	Search		
 
@@ -42,17 +48,23 @@ nmap <Leader>ev :tabedit $MYVIMRC<CR>
 nmap <silent> <C-n> :NERDTreeFocus<CR> 
 
 "Add simple highlight removal
-nmap <Leader><space> :nohlsearch<CR>
+nmap <ESC><ESC> :nohlsearch<CR>
+
+"Width in spaces for <Tab>
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+" ctrl+t for new tab
+nmap <C-t> :tabnew<CR>
+" ctrl+l/h to switch tabs
+nmap <C-l> :tabn<CR>
+nmap <C-h> :tabp<CR>
+
 
 "-	Split Management
 set splitbelow
 set splitright
-
-nmap <C-J> <C-W><C-J>
-nmap <C-K> <C-W><C-K>
-nmap <C-H> <C-W><C-H>
-nmap <C-L> <C-W><C-L>
-
 
 
 
