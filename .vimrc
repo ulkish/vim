@@ -1,34 +1,37 @@
 let mapleader = ','
 filetype off                  " required
 
-"-	Plugins		
-set nocompatible              "We want the latest vim settings/options 
 
-" set the runtime path to include Vundle and initialize
+"-  Alternative to CtrlP:
+
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+" Display all matching files when we tab complete
+set wildmenu
+
+"-	Plugins		
+"
+set nocompatible							"We want the latest vim settings/options 
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call vundle#begin()							"Set the runtime path to include Vundle and initialize
 Plugin 'VundleVim/Vundle.vim'				"Lets Vundle manage Vundle
 Plugin 'scrooloose/nerdtree'				"Navigation
-Plugin 'vim-airline/vim-airline'			"Status bar.
-Plugin 'vim-airline/vim-airline-themes'		"Stylish airline.
 Plugin 'Raimondi/delimitMate'				"Autoclose ({[.
 Plugin 'mattn/emmet-vim'					"HTML tags support.
 Plugin 'jwalton512/vim-blade'				"Blade syntax support.
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
+call vundle#end()							" required
+filetype plugin indent on					" required
 
 "-	Visuals	
-
 
 set termguicolors
 colorscheme atom-dark
 syntax enable
 set number
 set backspace=indent,eol,start
-let g:airline_powerline_fonts = 1
 hi LineNR guibg=bg
 hi vertsplit guifg=bg guibg=bg
 
@@ -36,8 +39,6 @@ hi vertsplit guifg=bg guibg=bg
 
 set hlsearch
 set incsearch
-
-
 
 "-	Mappings	
 
@@ -58,12 +59,11 @@ set shiftwidth=4
 " ctrl+t for new tab
 nmap <C-t> :tabnew<CR>
 " ctrl+l/h to switch tabs
-nmap <C-l> :tabn<CR>
-nmap <C-h> :tabp<CR>
+nmap <C-l> :tabprevious<CR>
+nmap <C-h> :tabnext<CR>
 
 
 "-	Split Management
-set splitbelow
 set splitright
 
 
