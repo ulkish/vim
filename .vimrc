@@ -2,7 +2,7 @@
 set nocompatible   
 " Set bigger history of executed commands.
 set history=1000
-" Automatically re-read files if unmodiied inside Vim.
+" Automatically re-read files if unmodified inside Vim.
 set autoread
 
 " === USER INTERFACE OPTIONS ===
@@ -66,6 +66,8 @@ set backspace=indent,eol,start
 set incsearch
 " Highlight searches by default.
 set hlsearch
+" Clears highlights on pressing ESC twice.
+nnoremap <esc><esc> :noh<return>
 " Ignore case when searching...
 set ignorecase
 " ... unless you type a capital.
@@ -98,3 +100,17 @@ set nrformats-=octal
 set undofile
 " Undo history location.
 set undodir=~/.vim/undodir
+
+" open files in previous window (the current split you have beside netrw split).
+let g:netrw_browse_split = 4
+" Mappings for window navigation.
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+
+" make . to work with visually selected lines
+vnoremap . :normal.<CR>
+" Move visual selection
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
